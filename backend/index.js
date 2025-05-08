@@ -5,7 +5,7 @@ const app = express();
 const cors = require("cors");
 const dotenv = require("dotenv");
 
-dotenv.config({ path: "./.env" });
+dotenv.config();
 
 
 // middleware

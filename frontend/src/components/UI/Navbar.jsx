@@ -51,7 +51,7 @@ const Navbar = () => {
               }
             }}
           >
-            Tutor-Time
+            Appointment Booking System
           </Link>
 
 

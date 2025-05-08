@@ -6,11 +6,12 @@ const connectToMongo = () => {
     mongoose.set("strictQuery", false);
     mongoose.connect(dbUrl)
         .then(() => {
-            console.log("DATABASE CONNECTED")
+            console.log("DATABASE CONNECTED", mongoose.connection.host)
         })
         .catch(err => {
             console.log("OH NO ERROR!!!!")
             console.log(err)
         })
 }
+
 module.exports = connectToMongo;
