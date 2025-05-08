@@ -88,7 +88,7 @@ function StudentLogin() {
                   onChange={changeHandler}
                   placeholder="Password"
                 />
-                <label >Password: pass123</label>
+                <label >Password: student</label>
                 <div className="flex mt-4 gap-3 w-full">
                   <input
                     type="submit"
