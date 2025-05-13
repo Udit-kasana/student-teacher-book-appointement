@@ -4,7 +4,7 @@ This is a MERN stack project designed to facilitate the booking of appointments 
 
 ## 🌐 Live Demo
 
-[Click here to view the deployed site]([https://student-teacher-book-appointement.onrender.com])
+[Click here to view the deployed site](https://student-teacher-book-appointement.onrender.com)
 
 
 ## Table of Contents
