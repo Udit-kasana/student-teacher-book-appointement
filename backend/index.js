@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const app = express();
 
 // cors
@@ -6,7 +7,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 dotenv.config();
-
 
 // middleware
 app.use(express.json());
@@ -17,13 +17,9 @@ app.use(cors());
 const connectToMongo = require("./db");
 connectToMongo();
 
-
-
-
-app.get("/", (req, res) => {
-  res.send("Welcome to the Tutor-Time API!");
-});
-
+// app.get("/", (req, res) => {
+//   res.send("Welcome to the Tutor-Time API!");
+// });
 
 // mouting routes
 const adminRoutes = require("./routes/adminRoutes");
@@ -41,6 +37,25 @@ app.use("/api/v1/messages", messageRoutes);
 //   console.error(err.stack);
 //   res.status(500).send("Something broke!");
 // });
+
+//-------------deployment-------
+const __dirname1 = path.resolve();
+
+if (process.env.NODE_ENV === "production") {
+  // Serve static files from frontend/dist
+  app.use(express.static(path.join(__dirname1, "../frontend/dist")));
+
+  // Serve index.html for all remaining routes (React/Vite routing)
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "../frontend", "dist", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running successfully");
+  });
+}
+
+//-------------------------
 
 const port = process.env.PORT || 5000;
 
